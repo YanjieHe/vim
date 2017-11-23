@@ -9,3 +9,12 @@ function Build()
 		exec "echo &filetype"
 	endif
 endfunction
+
+function BuildCpp()
+	if &filetype == "cpp"
+		exec "!clear && cmake build/"
+		exec "make"
+	else
+		echo "This is not a cpp file."
+	endif
+endfunction

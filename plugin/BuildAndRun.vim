@@ -3,16 +3,12 @@ function BuildAndRun()
 	if &filetype == "python"
 		exec "!python3 %"
 	elseif &filetype == "scheme"
-		exec "!racket -f %"
+		exec "!racket %"
 	elseif &filetype == "julia"
 		exec "!julia %"
-	elseif &filetype == "cpp"
-		call BuildCpp()
-		exec "!python3 ~/.vim/cpp/RunCppProject.py"
 	elseif &filetype == "gnuplot"
 		exec "!gnuplot --persist -c %"
 	else
-		exec "echo 'Not supported file type'"
-		exec "echo &filetype"
+		echo "Not supported file type: " . &filetype
 	endif
 endfunction

@@ -1,4 +1,4 @@
-function! SendCodeLineToTmux()
+function SendCodeLineToTmux()
 if &filetype == "python" || &filetype == "r" || &filetype == "julia"
 python3 << EOF
 import os
@@ -9,6 +9,6 @@ os.system("tmux send-keys C-m")
 EOF
 	call cursor(line('.') + 1, 1)
 else
-	echo "Not supported filetype" . &filetype
+	echo "Not supported filetype: " . &filetype
 endif
 endfunction
