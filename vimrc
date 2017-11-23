@@ -1,14 +1,14 @@
 set nocompatible
 set number
 set autoindent
-set smartindent
+set cindent
 set tabstop=4
 set shiftwidth=4
 syntax on
 
 autocmd BufRead,BufNewFile *.jl :set filetype=julia
 
-colorscheme freya
+"colorscheme freya
 
 augroup Gvim
 	if has('gui_running')
@@ -48,25 +48,28 @@ augroup SnipMate
 	Plugin 'msanders/snipmate.vim'
 augroup end
 
-source ~/.vim/BuildAndRun.vim
-source ~/.vim/Build.vim
-source ~/.vim/SendCode.vim
-source ~/.vim/python/SendCodeToPython3.vim
-source ~/.vim/r/SendCodeToR.vim
-source ~/.vim/julia/SendCodeToJulia.vim
-source ~/.vim/cpp/BuildCpp.vim
-source ~/.vim/cpp/SwitchHeaderSource.vim
-source ~/.vim/cpp/FindClass.vim
-source ~/.vim/cpp/CreateCppClass.vim
-source ~/.vim/cpp/Beautifier.vim
-source ~/.vim/cpp/CountLinesOfCode.vim
-source ~/.vim/cpp/CreateMethod.vim
+" source ~/.vim/BuildAndRun.vim
+" source ~/.vim/Build.vim
+" source ~/.vim/SendCode.vim
+" source ~/.vim/tmux/SendCodeToTmux.vim
+" source ~/.vim/python/SendCodeToPython3.vim
+" source ~/.vim/r/SendCodeToR.vim
+" source ~/.vim/julia/SendCodeToJulia.vim
+" source ~/.vim/racket/SendCodeToRacket.vim
+" source ~/.vim/cpp/BuildCpp.vim
+" source ~/.vim/cpp/SwitchHeaderSource.vim
+" source ~/.vim/cpp/FindClass.vim
+" source ~/.vim/cpp/CreateCppClass.vim
+" source ~/.vim/cpp/Beautifier.vim
+" source ~/.vim/cpp/CountLinesOfCode.vim
+" source ~/.vim/cpp/CreateMethod.vim
 
 map <F4> : call SwitchHeaderSource()<CR>
 map <F5> : call BuildAndRun()<CR>
 map <F6> : call Build()<CR>
-map <F7> : call Beautifier()<CR>
-map <F9> : call SendCode()<CR>
+"map <F7> : call Beautifier()<CR>
+"map <F9> : call SendCode()<CR> : <CR><CR>
+nmap <F9> : call SendCodeLineToTmux()<CR>
 
-map <leader>fc : call FindClass()<CR>
-map <leader>cm : call CreateMethod()<CR>
+"map <leader>fc : call FindClass()<CR>
+"map <leader>cm : call CreateMethod()<CR>

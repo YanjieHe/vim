@@ -12,7 +12,7 @@ function BuildAndRun()
 	elseif &filetype == "gnuplot"
 		exec "!gnuplot --persist -c %"
 	else
-		exec "echo 'Not supported file type"
+		exec "echo 'Not supported file type'"
 		exec "echo &filetype"
 	endif
 endfunction
