@@ -1,7 +1,8 @@
 function BuildAndRun()
 	exec "write"
 	if &filetype == "python"
-		exec "!python3 %"
+		setlocal makeprg=python3 -u
+		make %
 	elseif &filetype == "scheme"
 		exec "!racket %"
 	elseif &filetype == "julia"
